@@ -1,10 +1,12 @@
 import Link from "next/link";
 
-export default function Page({ slug }) {
+export default function Page({ slug, foo }) {
   return (
     <div>
       <h1>Docs</h1>
-      <p>Page: {slug}</p>
+      <p>
+        Page: {slug}, foo: {foo}
+      </p>
       <ul>
         <li>
           <Link href="/docs">Back to docs</Link>
@@ -23,6 +25,7 @@ export function getStaticProps({ params }) {
   return {
     props: {
       slug,
+      foo: "bar",
     },
   };
 }
