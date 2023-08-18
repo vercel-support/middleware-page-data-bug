@@ -20,7 +20,7 @@ export default function Page({ slug, foo }) {
 }
 
 export function getStaticProps({ params }) {
-  const slug = params?.slug?.join("/") ?? "index";
+  const slug = params?.slug?.join("/") || "index";
 
   return {
     props: {
@@ -32,7 +32,11 @@ export function getStaticProps({ params }) {
 
 export function getStaticPaths() {
   return {
-    paths: [{ params: { slug: ["index"] } }, { params: { slug: ["about"] } }],
+    paths: [
+      { params: { slug: ["index"] } },
+      { params: { slug: ["about"] } },
+      { params: { slug: [""] } },
+    ],
     fallback: "blocking",
   };
 }
