@@ -15,6 +15,25 @@ export default function Page({ slug, foo }) {
           <Link href="/docs/about">About</Link>
         </li>
       </ul>
+      <h2 style={{ marginTop: "2rem", marginBottom: "1rem" }}>
+        What's happening here?
+      </h2>
+      <p style={{ marginBottom: "2rem" }}>
+        Using an optional catch-all route, along with a middleware, causes the
+        page data for the index route to not be fetched properly on client-side
+        transitions. Click "Back to docs" above and notice the data is wiped
+        out. When inspecting the page data request, you'll notice that markup is
+        returned instead of the expected JSON object.
+      </p>
+      <p>
+        Reproduction:{" "}
+        <a
+          href="https://github.com/BRKalow/middleware-page-data-bug/tree/main"
+          target="_blank"
+        >
+          https://github.com/BRKalow/middleware-page-data-bug/tree/main
+        </a>
+      </p>
     </div>
   );
 }
